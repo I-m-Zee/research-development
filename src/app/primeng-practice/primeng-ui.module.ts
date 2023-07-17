@@ -105,7 +105,7 @@ import { AutoFocusModule } from 'primeng/autofocus';
 import { AnimateModule } from 'primeng/animate';
 // *************** Utilities **************
 import { OverlayModule } from 'primeng/overlay';
-import { FilterService } from 'primeng/api';
+// import { FilterService } from 'primeng/api';
 
 const PRIMENGMODULES = [
   PanelMenuModule, ToastModule, TableModule, MultiSelectModule, InputTextModule, ButtonModule,
@@ -118,7 +118,7 @@ const PRIMENGMODULES = [
   MegaMenuModule, TabMenuModule, MenubarModule, ChipsModule, SelectButtonModule, TreeTableModule,
   ChartModule, TreeSelectModule, ConfirmDialogModule, AvatarModule, GalleriaModule, CascadeSelectModule,
   ColorPickerModule, EditorModule, InplaceModule, InputSwitchModule, InputTextareaModule, KnobModule,
-  KeyFilterModule, RatingModule, SlideMenuModule, SliderModule, FilterService, OverlayModule,
+  KeyFilterModule, RatingModule, SlideMenuModule, SliderModule, /*FilterService*/ OverlayModule,
   AnimateModule, AutoFocusModule, RippleModule, StyleClassModule, FocusTrapModule, DeferModule,
   TerminalModule, TagModule, ProgressBarModule, SkeletonModule, ScrollTopModule, ScrollerModule,
   TriStateCheckboxModule, SpeedDialModule, OrderListModule, OrganizationChartModule, TimelineModule, VirtualScrollerModule,
