@@ -127,7 +127,7 @@ const PRIMENGMODULES = [
 ]
 
 @NgModule({
-  imports: [PRIMENGMODULES],
-  exports: [PRIMENGMODULES],
+  imports: PRIMENGMODULES,
+  exports: PRIMENGMODULES,
 })
 export class PrimengUiModule { }
