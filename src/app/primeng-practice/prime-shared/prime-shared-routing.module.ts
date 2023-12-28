@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReversRowInTableComponent } from './revers-row-in-table/revers-row-in-table.component';
 
 const routes: Routes = [
-  { path: 'reverstable', component: ReversRowInTableComponent },
+  { path: 'table', component: ReversRowInTableComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

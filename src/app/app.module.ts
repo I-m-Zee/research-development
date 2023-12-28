@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PrimengPracticeModule } from './primeng-practice/primeng-practice.module';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from 'primeng/api';
+import { MaterialPracticeModule } from './material-practice/material-practice.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     PrimengPracticeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    MaterialPracticeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

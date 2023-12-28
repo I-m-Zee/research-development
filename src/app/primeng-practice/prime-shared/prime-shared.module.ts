@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { PrimeSharedRoutingModule } from './prime-shared-routing.module';
 import { PrimengUiModule } from '../primeng-ui.module'
 import { ReversRowInTableComponent } from './revers-row-in-table/revers-row-in-table.component';
+import { ProductService } from './services/product.service';
 
 
 @NgModule({
   declarations: [
-    ReversRowInTableComponent
+    ReversRowInTableComponent,
   ],
   imports: [
     CommonModule,
@@ -16,7 +17,6 @@ import { ReversRowInTableComponent } from './revers-row-in-table/revers-row-in-t
     PrimengUiModule
   ],
   exports: [
-    
   ]
 })
 export class PrimeSharedModule { }
