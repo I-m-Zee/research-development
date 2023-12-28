@@ -116,7 +116,7 @@ const PRIMENGMODULES = [
   InputNumberModule, InputMaskModule, DynamicDialogModule, CarouselModule, PasswordModule, BreadcrumbModule,
   SplitterModule, PickListModule, FieldsetModule, ScrollPanelModule, AccordionModule, TooltipModule,
   MegaMenuModule, TabMenuModule, MenubarModule, ChipsModule, SelectButtonModule, TreeTableModule,
-  ChartModule, TreeSelectModule, ConfirmDialogModule, AvatarModule, GalleriaModule, CascadeSelectModule,
+  /*ChartModule,*/ TreeSelectModule, ConfirmDialogModule, AvatarModule, GalleriaModule, CascadeSelectModule,
   ColorPickerModule, EditorModule, InplaceModule, InputSwitchModule, InputTextareaModule, KnobModule,
   KeyFilterModule, RatingModule, SlideMenuModule, SliderModule, /*FilterService*/ OverlayModule,
   AnimateModule, AutoFocusModule, RippleModule, StyleClassModule, FocusTrapModule, DeferModule,
