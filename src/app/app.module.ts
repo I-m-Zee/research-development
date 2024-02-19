@@ -6,6 +6,7 @@ import { PrimengPracticeModule } from './primeng-practice/primeng-practice.modul
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from 'primeng/api';
 import { MaterialPracticeModule } from './material-practice/material-practice.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MaterialPracticeModule } from './material-practice/material-practice.mo
     PrimengPracticeModule,
     AppRoutingModule,
     SharedModule,
-    MaterialPracticeModule
+    MaterialPracticeModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,20 @@
 <div>Reverse Table</div>
 <div class="card">
-    <p-table [value]="products" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [value]="products" dataKey="id">
         <ng-template pTemplate="header">
             <tr>
-                <th style="width:25%">Code</th>
-                <th style="width:25%">Name</th>
-                <th style="width:25%">Inventory Status</th>
-                <th style="width:25%">Price</th>
+                <th>Ser</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Inventory Status</th>
+                <th>Price</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product let-editing="editing">
+        <ng-template pTemplate="body" let-product let-editing="editing" let-index="rowIndex">
             <tr>
+                <td>
+                    {{index+1}}
+                </td>
                 <td [pEditableColumn]="product.code" pEditableColumnField="code">
                     <p-cellEditor>
                         <ng-template pTemplate="input">

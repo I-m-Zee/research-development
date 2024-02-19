@@ -1,0 +1,26 @@
+<!-- With Input & Output -->
+<div class="row">
+    <h3>Example with Input / Output</h3>
+    <div class="col-md-12">
+        <div class="my-3">
+            <app-counter-output [counter]="counter"></app-counter-output>
+        </div>
+        <div class="my-3">
+            <app-counter-buttons (increment)="onIncrement()" (decrement)="onDecrement()"
+                (reset)="onReset()"></app-counter-buttons>
+        </div>
+    </div>
+</div>
+<!-- With Service -->
+<div class="row">
+    <h3>Example with Service</h3>
+    <div class="col-md-12">
+        <div class="my-3">
+            <app-counter-output [counter]="counterService.counter"></app-counter-output>
+        </div>
+        <div class="my-3">
+            <app-counter-buttons (increment)="counterService.onIncrement()" (decrement)="counterService.onDecrement()"
+                (reset)="counterService.onReset()"></app-counter-buttons>
+        </div>
+    </div>
+</div>
