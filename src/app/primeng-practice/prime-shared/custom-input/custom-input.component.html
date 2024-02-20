@@ -1,6 +1,12 @@
 <div class="row">
+    <div class="my-3">
+        <h4>{{counterName}}</h4>
+    </div>
     <div class="col-md-12">
         <input type="number" placeholder="Enter a number" [(ngModel)]="value">
         <button class="btn btn-primary" (click)="clickToAdd()">Click to Add</button>
     </div>
+</div>
+<div class="row">
+    <button type="button" (click)="onChangeName()">Change Name</button>
 </div>

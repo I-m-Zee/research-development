@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CounterService } from '../services/counter.service';
 import { Store } from '@ngrx/store';
 import { iCounterState } from '../store/state/counter.state';
+import { first, take, takeLast } from 'rxjs';
 
 @Component({
   selector: 'app-counter-output',
@@ -15,6 +16,7 @@ export class CounterOutputComponent implements OnInit {
   storeCounter: number = 0;
   ngOnInit(): void {
     this.store.select('counter').subscribe(res => {
+      console.log("Counter: ", res.counter)
       this.storeCounter = res.counter;
     })
   }

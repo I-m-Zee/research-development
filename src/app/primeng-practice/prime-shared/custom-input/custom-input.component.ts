@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { iCounterState } from '../store/state/counter.state';
-import { customIncrement } from '../store/actions/counter.actions';
+import { changeName, customIncrement } from '../store/actions/counter.actions';
 
 @Component({
   selector: 'app-custom-input',
@@ -11,13 +11,21 @@ import { customIncrement } from '../store/actions/counter.actions';
 export class CustomInputComponent implements OnInit {
 
   value: number = 0;
+  counterName: string = '';
   constructor(private store: Store<{ counter: iCounterState }>) { }
 
   ngOnInit(): void {
-
+    this.store.select('counter').subscribe(res => {
+      console.log("Name: ", res.name)
+      this.counterName = res.name
+    })
   }
 
   clickToAdd() {
     this.store.dispatch(customIncrement({ value: this.value }))
+  }
+
+  onChangeName() {
+    this.store.dispatch(changeName())
   }
 }

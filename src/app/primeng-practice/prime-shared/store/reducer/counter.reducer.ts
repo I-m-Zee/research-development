@@ -1,6 +1,7 @@
 import { createReducer, on } from "@ngrx/store"
 import { iCounterState, initialState } from "../state/counter.state"
-import { customIncrement, decrement, increment, reset } from "../actions/counter.actions"
+import { changeName, customIncrement, decrement, increment, reset } from "../actions/counter.actions"
+import { state } from "@angular/animations"
 
 
 // One Way to Wirte
@@ -59,5 +60,11 @@ export const counterReducer = createReducer(
             counter: state.counter + action.value
         }
     }),
+    on(changeName, state => {
+        return {
+            ...state,
+            name: 'Name Changed'
+        }
+    })
 
 )
