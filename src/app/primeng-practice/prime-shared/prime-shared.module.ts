@@ -9,6 +9,8 @@ import { CounterWithoutNgrxComponent } from './counter-without-ngrx/counter-with
 import { CounterButtonsComponent } from './counter-buttons/counter-buttons.component';
 import { CounterOutputComponent } from './counter-output/counter-output.component';
 import { CounterService } from './services/counter.service';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CustomInputComponent } from './custom-input/custom-input.component';
 
 
 @NgModule({
@@ -17,11 +19,13 @@ import { CounterService } from './services/counter.service';
     CounterOutputComponent,
     CounterWithoutNgrxComponent,
     CounterButtonsComponent,
+    CustomInputComponent
   ],
   imports: [
     CommonModule,
     PrimeSharedRoutingModule,
     PrimengUiModule,
+    SharedModule
   ],
   exports: [
   ]

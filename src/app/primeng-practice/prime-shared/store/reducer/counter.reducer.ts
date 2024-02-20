@@ -1,8 +1,38 @@
 import { createReducer, on } from "@ngrx/store"
-import { initialState } from "../state/counter.state"
-import { decrement, increment, reset } from "../actions/counter.actions"
+import { iCounterState, initialState } from "../state/counter.state"
+import { customIncrement, decrement, increment, reset } from "../actions/counter.actions"
 
-const _counterReducer = createReducer(
+
+// One Way to Wirte
+// const _counterReducer = createReducer(
+//     initialState,
+//     on(increment, (state) => {
+//         return {
+//             ...state,
+//             counter: state.counter + 1
+//         }
+//     }),
+//     on(decrement, (state) => {
+//         return {
+//             ...state,
+//             counter: state.counter - 1
+//         }
+//     }),
+//     on(reset, (state) => {
+//         return {
+//             ...state,
+//             counter: 0
+//         }
+//     }),
+
+// )
+
+// export function counterReducer(state: iCounter, action: any) {
+//     return _counterReducer(state, action)
+// } 
+
+// Other Way
+export const counterReducer = createReducer(
     initialState,
     on(increment, (state) => {
         return {
@@ -22,9 +52,12 @@ const _counterReducer = createReducer(
             counter: 0
         }
     }),
+    on(customIncrement, (state, action) => {
+        console.log(action)
+        return {
+            ...state,
+            counter: state.counter + action.value
+        }
+    }),
 
 )
-
-export function counterReducer(state: any, action: any) {
-    return _counterReducer(state, action)
-} 
