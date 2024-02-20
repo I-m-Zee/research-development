@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CounterService } from '../services/counter.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-counter-without-ngrx',
@@ -9,7 +10,7 @@ import { CounterService } from '../services/counter.service';
 })
 export class CounterWithoutNgrxComponent implements OnInit {
 
-  constructor(protected counterService: CounterService) { }
+  constructor(protected counterService: CounterService, private store: Store<{ counter: { counter: number } }>) { }
 
   counter: number = 0;
 

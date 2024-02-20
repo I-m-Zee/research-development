@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from 'primeng/api';
 import { MaterialPracticeModule } from './material-practice/material-practice.module';
 import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './primeng-practice/prime-shared/store/reducer/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { StoreModule } from '@ngrx/store';
     AppRoutingModule,
     SharedModule,
     MaterialPracticeModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ counter: counterReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
