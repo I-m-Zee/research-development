@@ -1,0 +1,138 @@
+<div class="row display-block">
+    <div class="col-md-6 ml-1 p-0 border border-primary">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Chart Form</h1>
+            </div>
+        </div>
+        <div class="row">
+            <form [formGroup]="chartForm" (ngSubmit)="onSubmit()">
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="chartname">Name: </label>
+                        </div>
+                        <div class="col-md-8 ">
+                            <input id="chartname" type="text" formControlName="chartname">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="chartType">Chart Type: </label>
+                        </div>
+                        <div class="col-md-8 ">
+                            <input id="chartType" type="text" formControlName="chartType">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="height">Height: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="height" type="number" formControlName="height">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="widht">Width: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="widht" type="number" formControlName="width">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="label">Label: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="label" type="text" formControlName="label">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="xAxis">X Axis: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="xAxis" type="number" formControlName="xAxis">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="yAxis">Y Axis: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="yAxis" type="number" formControlName="yAxis">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="marginT">Margin Top: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="marginT" type="number" formControlName="marginTop">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="marginR">Margin Right: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="marginR" type="number" formControlName="marginRight">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="marginB">Margin Bottom: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="marginB" type="number" formControlName="marginBottom">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 m-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="marginL">Margin Left: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <input id="marginL" type="number" formControlName="marginLeft">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!chartForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6 p-0 border border-dark">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Chart</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    Test Chart
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

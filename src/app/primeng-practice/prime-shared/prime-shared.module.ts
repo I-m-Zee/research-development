@@ -11,6 +11,7 @@ import { CounterOutputComponent } from './counter-output/counter-output.componen
 import { CounterService } from './services/counter.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CustomInputComponent } from './custom-input/custom-input.component';
+import { D3ChartPracticeComponent } from './d3-chart-practice/d3-chart-practice.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CustomInputComponent } from './custom-input/custom-input.component';
     CounterOutputComponent,
     CounterWithoutNgrxComponent,
     CounterButtonsComponent,
-    CustomInputComponent
+    CustomInputComponent,
+    D3ChartPracticeComponent
   ],
   imports: [
     CommonModule,

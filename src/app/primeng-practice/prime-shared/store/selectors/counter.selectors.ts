@@ -3,8 +3,8 @@ import { iCounterState } from "../state/counter.state";
 import { state } from "@angular/animations";
 
 
-const getConterState = createFeatureSelector<iCounterState>('counter');
+const getCounterState = createFeatureSelector<iCounterState>('counter');
 
-export const getCounter = createSelector(getConterState, (state) => state.counter)
+export const getCounter = createSelector(getCounterState, (state) => state.counter)
 
-export const getName = createSelector(getConterState, (state) => state.name)
+export const getName = createSelector(getCounterState, (state) => state.name)

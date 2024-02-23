@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -8,6 +8,7 @@ import { SharedModule } from 'primeng/api';
 import { MaterialPracticeModule } from './material-practice/material-practice.module';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './primeng-practice/prime-shared/store/reducer/counter.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,18 @@ import { counterReducer } from './primeng-practice/prime-shared/store/reducer/co
     AppRoutingModule,
     SharedModule,
     MaterialPracticeModule,
-    StoreModule.forRoot({ counter: counterReducer })
+    StoreModule.forRoot({ counter: counterReducer }),
+    StoreDevtoolsModule.instrument({ logOnly: !isDevMode() })
+    // StoreDevtoolsModule.instrument({
+    //   maxAge: 25,
+    //   logOnly: false,
+    //   autoPause: true,
+    //   features: {
+    //     pause: false,
+    //     lock: true,
+    //     persist: true
+    //   }
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]

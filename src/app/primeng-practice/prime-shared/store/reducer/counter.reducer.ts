@@ -53,11 +53,11 @@ export const counterReducer = createReducer(
             counter: 0
         }
     }),
-    on(customIncrement, (state, action) => {
-        console.log(action)
+    on(customIncrement, (state, act) => {
+        console.log(act)
         return {
             ...state,
-            counter: state.counter + action.value
+            counter: state.counter + act.value
         }
     }),
     on(changeName, state => {
