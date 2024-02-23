@@ -1,6 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { PrimengPracticeModule } from './primeng-practice/primeng-practice.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     PrimengPracticeModule,
     AppRoutingModule,
     SharedModule,

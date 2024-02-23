@@ -5,133 +5,95 @@
                 <h1>Chart Form</h1>
             </div>
         </div>
-        <div class="row">
-            <form [formGroup]="chartForm" (ngSubmit)="onSubmit()">
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="chartname">Name: </label>
-                        </div>
-                        <div class="col-md-8 ">
-                            <input id="chartname" type="text" formControlName="chartname">
-                        </div>
+        <div class="card flex">
+            <div class="row">
+                <form [formGroup]="chartForm" (ngSubmit)="onSubmit()">
+                    <div class="col-md-12 m-1">
+                        <label for="chartname">Name: </label>
+                        <input id="chartname" type="text" formControlName="chartname">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="chartType">Chart Type: </label>
-                        </div>
-                        <div class="col-md-8 ">
-                            <input id="chartType" type="text" formControlName="chartType">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label>Chart Type: </label>
+                        <p-dropdown id="cType" [options]="chartTypes" formControlName="cType" optionLabel="type"
+                            optionValue="id" placeholder="Select Chart Type"></p-dropdown>
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="height">Height: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="height" type="number" formControlName="height">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="height">Height: </label>
+                        <input id="height" type="number" formControlName="height">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="widht">Width: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="widht" type="number" formControlName="width">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="width">Width: </label>
+                        <input id="width" type="number" formControlName="width">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="label">Label: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="label" type="text" formControlName="label">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="label">Label: </label>
+                        <input id="label" type="text" formControlName="label">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="xAxis">X Axis: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="xAxis" type="number" formControlName="xAxis">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="xAxis">X Axis: </label>
+                        <input id="xAxis" type="number" formControlName="xAxis">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="yAxis">Y Axis: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="yAxis" type="number" formControlName="yAxis">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="yAxis">Y Axis: </label>
+                        <input id="yAxis" type="number" formControlName="yAxis">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="marginT">Margin Top: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="marginT" type="number" formControlName="marginTop">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="marginT">Margin Top: </label>
+                        <input id="marginT" type="number" formControlName="marginTop">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="marginR">Margin Right: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="marginR" type="number" formControlName="marginRight">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="marginR">Margin Right: </label>
+                        <input id="marginR" type="number" formControlName="marginRight">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="marginB">Margin Bottom: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="marginB" type="number" formControlName="marginBottom">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="marginB">Margin Bottom: </label>
+                        <input id="marginB" type="number" formControlName="marginBottom">
                     </div>
-                </div>
-                <div class="col-md-12 m-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="marginL">Margin Left: </label>
-                        </div>
-                        <div class="col-md-8">
-                            <input id="marginL" type="number" formControlName="marginLeft">
-                        </div>
+                    <div class="col-md-12 m-1">
+                        <label for="marginL">Margin Left: </label>
+                        <input id="marginL" type="number" formControlName="marginLeft">
                     </div>
-                </div>
-                <button type="submit" [disabled]="!chartForm.valid">Submit</button>
-            </form>
+                    <button type="submit" [disabled]="!chartForm.valid">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="col-md-6 p-0 border border-dark">
         <div class="row">
             <div class="col-md-12">
-                <h1>Chart</h1>
+                <h1>{{chartType}} + Chart</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div>
-                    Test Chart
-                </div>
+                <!-- <div [ngSwitch]="value">
+                    <div *ngSwitchCase="'value1'">Content for value1</div>
+                    <div *ngSwitchCase="'value2'">Content for value2</div>
+                    <div *ngSwitchDefault>Default content</div>
+                </div> -->
+                <ng-container *ngIf="chartType!=0">
+                    <app-bar [chartData]="chartData"></app-bar>
+                </ng-container>
+                <!-- @switch (chartType) {
+                @case (1) {
+                {{"Show Bar Chart"+ counter}}
+                }
+                @case (2) {
+                <app-pie></app-pie>
+                }
+                @case (3) {
+                <app-scatter></app-scatter>
+                }
+                @default {
+                {{"Show Default Chart"}}
+                <app-bar [chartData]="chartData"></app-bar>
+                }
+                } -->
+                <!-- @switch (chartType) {
+                    <ng-template>
+
+                    </ng-template>
+                } -->
             </div>
         </div>
     </div>
