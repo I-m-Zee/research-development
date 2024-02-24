@@ -1,5 +1,4 @@
-import { AfterContentChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, NgZone, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 export const data = [
   { "Framework": "Vue", "Stars": "166443", "Released": "2014" },
@@ -16,50 +15,49 @@ export const data = [
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class BarComponent implements OnInit, AfterViewInit, OnChanges {
+export class BarComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
 
   private data: any;
   private svg: any;
-  private el: HTMLElement;
+  // private el: HTMLElement;
   @ViewChild("chart") chart!: ElementRef<HTMLElement>;
   @Input() chartData: any;
   counterInit: number = 0;
   counterAfterInit: number = 0;
 
-  constructor(private cdRef: ChangeDetectorRef, private zone: NgZone, private elementRef: ElementRef, private renderer: Renderer2) {
+  constructor(
+    // private cdRef: ChangeDetectorRef,
+    // private zone: NgZone,
+    // private elementRef: ElementRef,
+    private renderer: Renderer2) {
     this.data = data;
-    this.el = elementRef.nativeElement;
+    // this.el = elementRef.nativeElement;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    debugger
     // this.cdRef.detectChanges();
     // if (this.chart.nativeElement) {
     //   this.renderer.setProperty(this.chart.nativeElement, 'innerHTML', "")
     // }
-    this.createSvg();
-    this.drawBars(this.data);
+    if (changes['chartData'].previousValue) {
+      this.createSvg();
+      this.drawBars(this.data);
+    }
   }
 
   ngOnInit(): void {
-    alert(`Hello from ngOnInit ${this.counterInit++}`)
   }
 
   ngAfterViewInit(): void {
-    alert(`Hello from ngAfterViewInit ${this.counterAfterInit++}`)
-    console.log("Svg: ", this.chart)
-
     this.createSvg();
     this.drawBars(this.data);
-
     // this.zone.run(() => {
     //   console.log('enabled time travel');
     // });
-
   }
 
   private createSvg(): void {
-    if (this.chart.nativeElement) {
+    if (this.chart != undefined && this.chart.nativeElement) {
       this.renderer.setProperty(this.chart.nativeElement, 'innerHTML', "")
     }
     this.svg = d3.select(this.chart.nativeElement as HTMLDivElement)
@@ -68,6 +66,7 @@ export class BarComponent implements OnInit, AfterViewInit, OnChanges {
       .attr("height", this.chartData.height + (this.chartData.marginRight * 5))
       .append("g")
       .attr("transform", "translate(" + this.chartData.marginTop + "," + this.chartData.marginRight + ")");
+
   }
 
 
@@ -84,7 +83,10 @@ export class BarComponent implements OnInit, AfterViewInit, OnChanges {
       .call(d3.axisBottom(x))
       .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-45)")
-      .style("text-anchor", "end");
+      .style("text-anchor", "end")
+    // .transition()
+    // .ease(d3.easeCircleInOut)
+    // .duration(3000);
 
     // Create the Y-axis band scale
     const y = d3.scaleLinear()
@@ -93,18 +95,30 @@ export class BarComponent implements OnInit, AfterViewInit, OnChanges {
 
     // Draw the Y-axis on the DOM
     this.svg.append("g")
+      .attr("transform", "translate(0, 10)")
       .call(d3.axisLeft(y));
+    // var y_axis = d3.axisLeft(y)
+
+    // this.svg.append("g")
+    //   .attr("transform", "translate(50, 10)")
+    //   .call(y_axis);
 
     // Create and fill the bars
     this.svg.selectAll("bars")
       .data(data)
       .enter()
       .append("rect")
+      .transition(d3.easeBack)
+      .duration(1000)
       .attr("x", (d: any) => x(d.Framework))
       .attr("y", (d: any) => y(d.Stars))
       .attr("width", x.bandwidth())
       .attr("height", (d: any) => this.chartData.height - y(d.Stars))
       .attr("fill", "#d04a35");
+  }
+
+  ngOnDestroy(): void {
+    console.log("Bar Chart destroyed")
   }
 
 }

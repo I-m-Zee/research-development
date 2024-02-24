@@ -72,11 +72,11 @@
                     <div *ngSwitchDefault>Default content</div>
                 </div> -->
                 <ng-container *ngIf="chartType!=0">
-                    <app-bar [chartData]="chartData"></app-bar>
                 </ng-container>
-                <!-- @switch (chartType) {
+                @switch (chartType) {
                 @case (1) {
                 {{"Show Bar Chart"+ counter}}
+                <app-bar [chartData]="chartData"></app-bar>
                 }
                 @case (2) {
                 <app-pie></app-pie>
@@ -85,10 +85,10 @@
                 <app-scatter></app-scatter>
                 }
                 @default {
-                {{"Show Default Chart"}}
-                <app-bar [chartData]="chartData"></app-bar>
+                <!-- {{"Show Default Chart"}}
+                <app-bar [chartData]="chartData"></app-bar> -->
                 }
-                } -->
+                }
                 <!-- @switch (chartType) {
                     <ng-template>
 
