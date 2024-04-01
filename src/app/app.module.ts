@@ -9,6 +9,7 @@ import { MaterialPracticeModule } from './material-practice/material-practice.mo
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './primeng-practice/prime-shared/store/reducer/counter.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     SharedModule,
     MaterialPracticeModule,
     StoreModule.forRoot({ counter: counterReducer }),
-    StoreDevtoolsModule.instrument({ logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ logOnly: !isDevMode() }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
     // StoreDevtoolsModule.instrument({
     //   maxAge: 25,
     //   logOnly: false,

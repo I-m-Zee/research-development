@@ -1,13 +1,69 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>ResearchDevelopment</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
 </head>
+
 <body>
   <app-root></app-root>
+  <!-- <noscript>Please enable JavaScript to continue using this application.</noscript> -->
+  <script>
+    <!-- if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((registration) => {
+            console.log("Service Worker registered:", registration);
+          })
+          .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+          });
+      });
+    } -->
+    const checkPermission = () => {
+      if (!('serviceWorker' in navigator)) {
+        throw new Error("No support for service worker!")
+      }
+
+      if (!('Notification' in window)) {
+        throw new Error("No support for notification API");
+      }
+
+      if (!('PushManager' in window)) {
+        throw new Error("No support for Push API")
+      }
+    }
+
+    const registerSW = async () => {
+      const registration = await navigator.serviceWorker.register('sw.js');
+      console.log("service worker registered")
+      return registration;
+    }
+
+    const requestNotificationPermission = async () => {
+      const permission = await Notification.requestPermission();
+
+      if (permission !== 'granted') {
+        throw new Error("Notification permission not granted")
+      }
+
+    }
+
+    const main = async () => {
+      checkPermission()
+      await requestNotificationPermission()
+      await registerSW()
+    }
+  </script>
 </body>
+
 </html>
